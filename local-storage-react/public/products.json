@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": 70000,
+    "brand": "Lenovo",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 2,
+    "name": "Monitor",
+    "price": 10000,
+    "brand": "HP",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 3,
+    "name": "Mouse",
+    "price": 600,
+    "brand": "Dell",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 4,
+    "name": "Phone",
+    "price": 20000,
+    "brand": "Oppo",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 5,
+    "name": "Tablet",
+    "price": 12000,
+    "brand": "Samsung",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 6,
+    "name": "iPhone",
+    "price": 122000,
+    "brand": "Apple",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 7,
+    "name": "Camera",
+    "price": 12000,
+    "brand": "Apple",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 8,
+    "name": "Monitor",
+    "price": 12000,
+    "brand": "Asus",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 9,
+    "name": "Dssk Top",
+    "price": 42000,
+    "brand": "Lenovo",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  },
+  {
+    "id": 10,
+    "name": "Hard Disk",
+    "price": 12500,
+    "brand": "Samsung",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, eius rerum ab exercitationem, tempora eos tempore maiores velit a molestiae cupiditate explicabo nihil consequatur architecto quae ea officiis praesentium. Tempore?"
+  }
+]
