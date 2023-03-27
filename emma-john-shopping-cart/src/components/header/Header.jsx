@@ -4,7 +4,7 @@ import logo from "/images/Logo.svg";
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center bg-slate-600 px-20 py-2">
+    <div className="flex justify-between items-center bg-slate-600 px-20 py-2 header">
       <div>
         <img src={logo} alt="" />
       </div>
