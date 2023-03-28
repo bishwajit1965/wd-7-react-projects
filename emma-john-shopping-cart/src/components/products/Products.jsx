@@ -31,8 +31,6 @@ const Products = () => {
 
   const handleAddToCart = (product) => {
     let newCart = [];
-    // console.log(product);
-    // const newCart = [...cart, product];
     const existingCart = cart.find((pro) => pro.id === product.id);
     if (!existingCart) {
       product.quantity = 1;
