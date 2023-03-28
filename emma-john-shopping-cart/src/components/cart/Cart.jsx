@@ -12,6 +12,7 @@ const Cart = (props) => {
     totalShipping += product.shipping;
   }
   tax = (totalPrice * 0.07).toFixed(2);
+
   const grandTotal = totalPrice + totalShipping + parseFloat(tax);
   return (
     <div className="cart">
