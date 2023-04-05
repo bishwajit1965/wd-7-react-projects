@@ -1,7 +1,10 @@
 import "./Cart.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Cart = (props) => {
-  const { cart } = props;
+  const { cart, handleClearCart, children } = props;
   console.log(cart);
   let totalPrice = 0;
   let totalShipping = 0;
@@ -42,6 +45,24 @@ const Cart = (props) => {
         Grand Total:{" "}
         <span className="float-right">${grandTotal.toFixed(2)}</span>
       </h6>
+      <div className="bg-red-500 rounded-md mt-5 flex justify-between items-center p-2">
+        <div className="text-white">
+          <p>Clear cart</p>
+        </div>
+        <button
+          onClick={handleClearCart}
+          className="w-10 h-10 bg-amber-200 hover:bg-yellow-300 shadow-sm rounded-full items-center relative"
+        >
+          <div className="absolute bottom-1 left-2 cursor-pointer">
+            <FontAwesomeIcon
+              className="w-5 h-5 text-red-500 hover:text-amber-700"
+              icon={faTrashAlt}
+            />
+          </div>
+        </button>
+      </div>
+
+      {children}
     </div>
   );
 };

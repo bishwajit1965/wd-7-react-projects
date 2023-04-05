@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Cart from "../cart/Cart";
 import "./Orders.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ReviewItem from "../reviewItem/ReviewItem";
-import { removeFromDb } from "../utilities/fakedb";
+import { deleteShoppingCart, removeFromDb } from "../utilities/fakedb";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 const Orders = () => {
   const savedCart = useLoaderData();
@@ -13,6 +15,11 @@ const Orders = () => {
     const remainingReviewItems = cart.filter((product) => product.id !== id);
     setCart(remainingReviewItems);
     removeFromDb(id);
+  };
+
+  const handleClearCart = () => {
+    setCart([]);
+    deleteShoppingCart();
   };
 
   return (
@@ -27,7 +34,24 @@ const Orders = () => {
         ))}
       </div>
       <div className="cart-container p-4 rounded-t-lg shadow-lg">
-        <Cart cart={cart} />
+        <Cart cart={cart} handleClearCart={handleClearCart}>
+          <div className="bg-amber-500 rounded-md mt-5 flex justify-between items-center p-2">
+            <div className="text-white block">
+              <p>Proceed Checkout</p>
+            </div>
+            <Link
+              to="/checkout"
+              className="w-10 h-10 bg-amber-200 hover:bg-yellow-300 shadow-sm rounded-full items-center relative"
+            >
+              <div className="absolute bottom-1 left-2 mx-auto block cursor-pointer">
+                <FontAwesomeIcon
+                  className="w-5 h-5 text-red-500 hover:text-amber-700"
+                  icon={faCreditCard}
+                />
+              </div>
+            </Link>
+          </div>
+        </Cart>
       </div>
     </div>
   );
