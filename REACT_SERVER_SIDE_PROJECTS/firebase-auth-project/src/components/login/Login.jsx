@@ -14,6 +14,7 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
+    const form = event.target;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
@@ -29,6 +30,7 @@ const Login = () => {
         });
         setSuccess("User login successful!");
         console.log(user);
+        form.reset();
       })
       .catch((error) => {
         const errorCode = error.code;

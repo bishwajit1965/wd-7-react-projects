@@ -13,6 +13,7 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProviders = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState("");
   // Create user
   const createUser = (email, password) => {
@@ -35,6 +36,7 @@ const AuthProviders = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -48,6 +50,7 @@ const AuthProviders = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     createUser,
     verifyEmailAddress,
     userLogIn,

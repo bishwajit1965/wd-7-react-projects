@@ -17,6 +17,9 @@ const Header = () => {
       <Link to="/">Home</Link>
       {/* <Link to="/login">Login</Link> */}
       <Link to="/register">Register</Link>
+      <Link to="/orders">Orders</Link>
+      {user && <Link to="/profile">Profile</Link>}
+
       <Link>
         {user ? (
           <>
