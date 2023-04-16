@@ -1,0 +1,11 @@
+nav {
+  background-color: #0b5ed7;
+  padding: 0.5rem 20rem;
+}
+
+nav a {
+  padding: 0rem 0.5rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
