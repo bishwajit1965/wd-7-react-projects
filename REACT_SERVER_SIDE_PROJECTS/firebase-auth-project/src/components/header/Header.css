@@ -9,3 +9,6 @@ nav a {
   color: #fff;
   font-weight: 500;
 }
+nav a:hover {
+  color: #f39d9d;
+}

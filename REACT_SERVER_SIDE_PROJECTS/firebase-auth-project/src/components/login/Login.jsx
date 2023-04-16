@@ -7,10 +7,10 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 
 const Login = () => {
+  const { userLogIn, changeUserPassword } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const emailRef = useRef(null);
-  const { userLogIn, changeUserPassword } = useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -20,6 +20,13 @@ const Login = () => {
     userLogIn(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        MySwal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successful!!!.",
+          showConfirmButton: false,
+          timer: 2000,
+        });
         setSuccess("User login successful!");
         console.log(user);
       })

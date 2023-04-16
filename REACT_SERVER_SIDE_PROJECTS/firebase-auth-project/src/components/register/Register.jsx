@@ -7,12 +7,9 @@ import { AuthContext } from "../providers/AuthProviders";
 const MySwal = withReactContent(Swal);
 
 const Register = () => {
+  const { createUser, verifyEmailAddress } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  // Restructured
-
-  const { createUser, verifyEmailAddress } = useContext(AuthContext);
-  // Restructured
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,7 +17,7 @@ const Register = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    // Restructured signed up
+    // Signed up
     createUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -34,9 +31,8 @@ const Register = () => {
         console.log(errorCode, errorMessage);
         setError(error.message);
       });
-    // Restructured
 
-    // Restructured verify email
+    // Verify email
     verifyEmailAddress()
       .then((result) => {
         MySwal.fire({
@@ -55,39 +51,7 @@ const Register = () => {
     // Clear message
     setSuccess("");
     setError("");
-
-    // Sign up
-    // createUserWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     setSuccess("User creation successful!!!");
-    //     sendVerificationEmail(userCredential.user);
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     console.log(errorCode, errorMessage);
-    //     setError(error.message);
-    //   });
   };
-  // const sendVerificationEmail = () => {
-  //   sendEmailVerification(auth.currentUser)
-  //     .then((result) => {
-  //       MySwal.fire({
-  //         position: "top-end",
-  //         icon: "success",
-  //         title: "Please verify your email address.",
-  //         showConfirmButton: false,
-  //         timer: 2000,
-  //       });
-  //       console.log(result);
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       console.log(errorCode, errorMessage);
-  //     });
-  // };
 
   return (
     <div className="d-flex align-items-center justify-content-center vh-100">
