@@ -6,7 +6,9 @@ const RightNav = () => {
   return (
     <div>
       <div className="mb-5">
-        <h2 className="text-2xl font-bold">Log in with</h2>
+        <div className="bg-zinc-100 p-2 mb-2 rounded-sm">
+          <h2 className="text-2xl font-bold">Log in with</h2>
+        </div>
         <div className="text-center my-4">
           <button className="border p-2 border-indigo-100 rounded-sm w-full inline-flex mb-2">
             <img

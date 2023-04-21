@@ -3,7 +3,7 @@ import moment from "moment";
 import Marquee from "react-fast-marquee";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Logo from "../../../../assets/logo/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -28,9 +28,15 @@ const Header = () => {
       <div className="md:flex md:mx-20 justify-between">
         <div className=""></div>
         <div className="space-x-4">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/career">Career</Link>
+          <NavLink className={`animate-pulse`} to="/">
+            Home
+          </NavLink>
+          <NavLink className={`animate-pulse`} to="/about">
+            About
+          </NavLink>
+          <NavLink className={`animate-pulse`} to="/career">
+            Career
+          </NavLink>
         </div>
         <div className="inline-flex items-center">
           <UserCircleIcon className="h-10 w-10 text-slate-600" />

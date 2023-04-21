@@ -23,7 +23,7 @@ const LeftNav = () => {
         {categories.map((category) => (
           <p className="py-2  block" key={category.id}>
             <NavLink
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={`({ isActive }) => (isActive ? "active" : "") animate-pulse`}
               to={`/category/${category.id}`}
             >
               {category.name}

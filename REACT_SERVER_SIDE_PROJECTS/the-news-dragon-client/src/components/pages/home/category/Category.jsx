@@ -5,11 +5,11 @@ import NewsCard from "../newsCard/NewsCard";
 const Category = () => {
   const { id } = useParams();
   const categoryWiseNews = useLoaderData();
+  let numOfNews = categoryWiseNews.length;
   return (
     <div>
-      Category news: {categoryWiseNews.length}
       {categoryWiseNews.map((cNews) => (
-        <NewsCard key={cNews.id} cNews={cNews} />
+        <NewsCard key={cNews.id} cNews={cNews} numOfNews={numOfNews} />
       ))}
     </div>
   );
