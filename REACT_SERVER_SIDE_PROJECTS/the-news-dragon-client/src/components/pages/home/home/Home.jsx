@@ -1,7 +1,8 @@
 import React from "react";
 import "./Home.css";
-import LeftNav from "../shared/leftNav/LeftNav";
-import RightNav from "../shared/rightNav/RightNav";
+import LeftNav from "../../shared/leftNav/LeftNav";
+import RightNav from "../../shared/rightNav/RightNav";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -10,10 +11,7 @@ const Home = () => {
         <LeftNav />
       </div>
       <div className="md:col-span-4 p-2 border border-green-200">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat,
-        nostrum. Nulla culpa porro tempore velit facilis sapiente odio fugit
-        quas quis animi perspiciatis corrupti, fugiat voluptatem dicta pariatur
-        officiis consequatur.
+        <Outlet />
       </div>
       <div className="md:col-span-2 p-2 border border-indigo-200">
         <RightNav />

@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../pages/shared/header/Header";
 import Footer from "../pages/shared/footer/Footer";
-import { Outlet } from "react-router-dom";
+import Home from "../pages/home/home/Home";
 
 const Main = () => {
   return (
     <div>
       <Header />
-      <Outlet />
+      <Home />
       <Footer />
     </div>
   );

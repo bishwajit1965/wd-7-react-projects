@@ -6,20 +6,28 @@ import QZoneThree from "../../../../assets/images/qZone3.png";
 
 const QZone = () => {
   return (
-    <div className="bg-zinc-100 grid justify-center rounded-sm p-2">
+    <div className="bg-zinc-100 grid grid-cols-1 justify-center rounded-sm p-2">
       <h2 className="text-2xl font-bold mb-4">Q-Zone</h2>
-      <div className="mb-4">
+      <div className="mb-4 w-full">
         <img
           src={QZoneOne}
           alt="q-zone-image"
           className="w-full object-cover"
         />
       </div>
-      <div className="mb-4">
-        <img src={QZoneTwo} alt="q-zone-image" />
+      <div className="mb-4 w-full">
+        <img
+          src={QZoneTwo}
+          alt="q-zone-image"
+          className="w-full object-cover"
+        />
       </div>
-      <div className="mb-4">
-        <img src={QZoneThree} alt="q-zone-image" />
+      <div className="mb-4 w-full">
+        <img
+          src={QZoneThree}
+          alt="q-zone-image"
+          className="w-full object-cover"
+        />
       </div>
     </div>
   );

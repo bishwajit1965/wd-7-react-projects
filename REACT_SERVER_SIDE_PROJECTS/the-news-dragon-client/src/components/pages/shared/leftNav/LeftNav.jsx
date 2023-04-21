@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./LeftNav.css";
+import editorInsightOne from "../../../../assets/images/1.png";
+import editorInsightTwo from "../../../../assets/images/2.png";
+import editorInsightThree from "../../../../assets/images/3.png";
 
 const LeftNav = () => {
   const [categories, setCategories] = useState([]);
+  const [isActive, setIsActive] = useState("");
   useEffect(() => {
     fetch("http://localhost:5000/categories")
       .then((response) => response.json())
@@ -16,10 +21,54 @@ const LeftNav = () => {
       </div>
       <div className="md:p-4">
         {categories.map((category) => (
-          <p className="py-2" key={category.id}>
-            <Link to={`/category/${category.id}`}>{category.name}</Link>
+          <p className="py-2  block" key={category.id}>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
+              to={`/category/${category.id}`}
+            >
+              {category.name}
+            </NavLink>
           </p>
         ))}
+      </div>
+      <div className="mt-4">
+        <div className="grid-cols-1 mb-5 rounded-md">
+          <img
+            src={editorInsightOne}
+            alt=""
+            className="rounded-md object-cover w-full"
+          />
+          <div className="p-2">
+            <h2 className="font-bold mt-2">
+              Halo, GTA Vice City Actor Directing Movie About Hunter Biden
+            </h2>
+          </div>
+        </div>
+        <div className="grid-cols-1 mb-5 rounded-md">
+          <img
+            src={editorInsightTwo}
+            alt=""
+            className="rounded-md object-cover w-full"
+          />
+          <div className="p-2">
+            <h2 className="font-bold mt-2">
+              U.S. announces largest weapons package for Ukraine
+            </h2>
+          </div>
+        </div>
+        <div className="grid-cols-1 mb-5 rounded-md">
+          <img
+            src={editorInsightThree}
+            alt=""
+            className="rounded-md object-cover w-full"
+          />
+          <div className="p-2">
+            <h2 className="font-bold mt-2">
+              Zelensky says he had ‘great conversation' with Biden, discussed
+              Kiev's further steps
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
   );
