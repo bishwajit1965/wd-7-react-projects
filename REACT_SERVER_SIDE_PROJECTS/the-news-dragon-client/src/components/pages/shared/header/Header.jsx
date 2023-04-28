@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import Marquee from "react-fast-marquee";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Logo from "../../../../assets/logo/logo.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch(() => {});
+  };
   return (
     <div className="text-center py-8">
       <img src={Logo} alt="" className="mx-auto h-10" />
@@ -26,9 +33,12 @@ const Header = () => {
         </h4>
       </div>
       <div className="md:flex md:mx-20 justify-between">
-        <div className=""></div>
+        <div className="">
+          {" "}
+          {user ? <>Welcome: {user.email}</> : "Please Login !!!"}
+        </div>
         <div className="space-x-4">
-          <NavLink className={`animate-pulse`} to="/">
+          <NavLink className={`animate-pulse`} to="/category/0">
             Home
           </NavLink>
           <NavLink className={`animate-pulse`} to="/about">
@@ -38,14 +48,46 @@ const Header = () => {
             Career
           </NavLink>
         </div>
-        <div className="inline-flex items-center">
-          <UserCircleIcon className="h-10 w-10 text-slate-600" />
-          <button className="bg-slate-600 px-3 py-1 rounded-sm text-white">
-            Login
-          </button>
+        <div className="inline-flex items-center space-x-2">
+          {user ? (
+            <>
+              <img
+                src="https://i.ibb.co/MgsDqCZ/FB-IMG-1678691214526.jpg"
+                className="h-10 w-10 rounded-full border-solid border-2 border-zinc-200"
+                alt="profile-picture"
+              />
+            </>
+          ) : (
+            <>
+              <UserCircleIcon className="h-10 w-10 object-cover border-solid border-4 border-zinc-200 rounded-full" />
+            </>
+          )}
+
+          <Link to="/register">
+            <button className="bg-slate-600 px-3 py-1 rounded-sm text-white">
+              Register
+            </button>
+          </Link>
+
+          {user ? (
+            <>
+              <Link onClick={handleLogOut}>
+                <button className="bg-red-600 px-3 py-1 rounded-sm text-white">
+                  Log out
+                </button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="bg-slate-600 px-3 py-1 rounded-sm text-white">
+                  Log in
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
-      <div className=""></div>
     </div>
   );
 };

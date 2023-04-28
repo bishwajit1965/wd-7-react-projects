@@ -5,6 +5,7 @@ import EditorsInsights from "../editorsInsights/EditorsInsights";
 
 const News = () => {
   const news = useLoaderData();
+
   const {
     _id,
     title,

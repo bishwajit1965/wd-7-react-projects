@@ -9,7 +9,7 @@ const Category = () => {
   return (
     <div>
       {categoryWiseNews.map((cNews) => (
-        <NewsCard key={cNews.id} cNews={cNews} numOfNews={numOfNews} />
+        <NewsCard key={cNews._id} cNews={cNews} numOfNews={numOfNews} />
       ))}
     </div>
   );

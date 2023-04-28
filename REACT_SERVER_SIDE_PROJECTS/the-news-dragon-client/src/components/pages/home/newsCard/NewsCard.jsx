@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Rating from "react-rating";
+import { textShortener } from "../../../../helpers/Helpers";
 
 const NewsCard = ({ cNews, numOfNews }) => {
   const {
@@ -56,17 +57,11 @@ const NewsCard = ({ cNews, numOfNews }) => {
         {" "}
         <h2 className="text-xl font-bold mb-3">{title}</h2>
         <img src={image_url} alt="" />
-        <p className="text-gray-700">
-          {details.length < 200 ? (
-            <>{details}</>
-          ) : (
-            <>
-              {details.slice(0, 200)}...{" "}
-              <Link className="text-indigo-600 font-bold" to={`/news/${_id}`}>
-                Read More
-              </Link>{" "}
-            </>
-          )}
+        <p className="mt-3">
+          {textShortener(details, 270)}{" "}
+          <Link className="text-indigo-600 font-bold" to={`/news/${_id}`}>
+            Read More
+          </Link>{" "}
         </p>
       </div>
       <div className="p-2 bg-gray-100 flex justify-between items-center">
