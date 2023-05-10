@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import LogIn from "../../assets/images/login/login.svg";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { hideErrorElements, hideSuccessElements } from "../../helpers/Helpers";
 
 const Login = () => {
-  const { userLogin, resetUserPassword } = useContext(AuthContext);
+  const { user, userLogin, resetUserPassword } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const emailRef = useRef();
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -17,37 +19,48 @@ const Login = () => {
 
     if (email.trim() === "") {
       setError("Email field is empty!");
+      hideErrorElements();
       return false;
     } else if (password.trim() === "") {
       setError("Password field is empty!");
+      hideErrorElements();
       return false;
     }
     userLogin(email, password)
       .then((result) => {
         const loggedInUser = result.loggedInUser;
         setSuccess("User log in successful !!!");
+        hideSuccessElements();
         console.log(loggedInUser);
       })
       .catch((error) => {
         console.log(error.message);
         setError("Something went wrong !!!");
+        hideErrorElements();
       });
     setError("");
     setSuccess("");
     form.reset();
   };
 
-  const handleResetPassword = (email) => {
-    resetUserPassword(email)
-      .then((result) => {
-        const user = result.user;
-        setSuccess("Password reset email sent.Check email !!!");
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-        setError(error.message);
-      });
+  const handleResetPassword = () => {
+    const emailData = emailRef.current.value;
+    if (!emailData) {
+      setError("Email field is empty!!!");
+      hideErrorElements();
+    } else {
+      resetUserPassword(emailData)
+        .then(() => {
+          setSuccess("Password reset email sent.Check email !!!");
+          hideSuccessElements();
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error.message);
+          setError(error.message);
+          hideErrorElements();
+        });
+    }
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -67,6 +80,7 @@ const Login = () => {
                   type="email"
                   placeholder="Email"
                   name="email"
+                  ref={emailRef}
                   className="input input-bordered"
                 />
               </div>
@@ -101,18 +115,18 @@ const Login = () => {
               </div>
               <div className="">
                 {error && (
-                  <span className="text-red-500">
-                    <i>
-                      <small>{error}</small>
+                  <p>
+                    <i className="text-red-500" id="error-message">
+                      {error}
                     </i>
-                  </span>
+                  </p>
                 )}
                 {success && (
-                  <span className="text-green-500">
-                    <i>
-                      <small> {success}</small>
+                  <p>
+                    <i className="text-green-500" id="success-message">
+                      {success}
                     </i>
-                  </span>
+                  </p>
                 )}
               </div>
               <div className="form-control mt-6">

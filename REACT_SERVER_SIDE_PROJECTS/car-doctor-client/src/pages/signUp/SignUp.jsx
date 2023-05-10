@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import LogIn from "../../assets/images/login/login.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { hideErrorElements, hideSuccessElements } from "../../helpers/Helpers";
+
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
@@ -19,15 +21,19 @@ const SignUp = () => {
     // Verify password and confirm password
     if (email.trim() === "") {
       setError("Email field is empty! ");
+      hideErrorElements();
       return false;
     } else if (password.trim() === "") {
       setError("Password field is empty! ");
+      hideErrorElements();
       return false;
     } else if (confirmPassword.trim() === "") {
       setError("Confirm password field is empty! ");
+      hideErrorElements();
       return false;
     } else if (password.trim() !== confirmPassword.trim()) {
       setError("Passwords do not match");
+      hideErrorElements();
       return false;
     }
 
@@ -36,9 +42,11 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         setSuccess("User creation is successful!!!");
+        hideSuccessElements();
       })
       .then((error) => {
         console.log(error.message);
+        hideErrorElements();
       });
     setError("");
     setSuccess("");
@@ -89,24 +97,25 @@ const SignUp = () => {
                 />
                 <label className="label">
                   <Link to="/login" className="label-text-alt link link-hover">
-                    Already a member ? Log in
+                    Already a member ?
+                    <span className="text-indigo-500"> Log in</span>
                   </Link>
                 </label>
               </div>
               <div className="">
                 {error && (
-                  <span className="text-red-500">
-                    <i>
-                      <small>{error}</small>
+                  <p>
+                    <i className="text-red-500" id="error-message">
+                      {error}
                     </i>
-                  </span>
+                  </p>
                 )}
                 {success && (
-                  <span className="text-green-500">
-                    <i>
-                      <small> {success}</small>
+                  <p>
+                    <i className="text-green-500" id="success-message">
+                      {success}
                     </i>
-                  </span>
+                  </p>
                 )}
               </div>
               <div className="form-control mt-6">
