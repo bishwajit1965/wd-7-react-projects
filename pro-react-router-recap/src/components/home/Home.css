@@ -1,0 +1,17 @@
+.shop-cart-container-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: center;
+  width: 80%;
+  margin: 5rem auto;
+  gap: 1.5rem;
+}
+.shop-container {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  justify-content: center;
+  gap: 1.5rem;
+}
+.cart-container {
+  background-color: #ddd;
+}

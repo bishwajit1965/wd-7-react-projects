@@ -1,0 +1,21 @@
+.cart {
+  width: 210px;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  position: relative;
+}
+.cart img {
+  width: 200px;
+  height: 200px;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+}
+.add-t-cart-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f07474;
+  border-radius: 0rem 0rem 0.3rem 0.3rem;
+  color: #fff;
+}
