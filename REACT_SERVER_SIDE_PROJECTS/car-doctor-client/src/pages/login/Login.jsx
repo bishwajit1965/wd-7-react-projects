@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { userLogin } = useContext(AuthContext);
+  const { userLogin, resetUserPassword } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
@@ -37,8 +37,17 @@ const Login = () => {
     form.reset();
   };
 
-  const handleResetPassword = () => {
-    alert("OJ");
+  const handleResetPassword = (email) => {
+    resetUserPassword(email)
+      .then((result) => {
+        const user = result.user;
+        setSuccess("Password reset email sent.Check email !!!");
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
